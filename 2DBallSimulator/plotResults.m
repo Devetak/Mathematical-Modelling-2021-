@@ -4,16 +4,19 @@
 %       : name representing the name of the graphs
 function plotResults(h, maxIt, r, v, totEn, name)
 
-    time = [1:maxIt] * h;
+    time = (1:maxIt) * h;
 
-    % r(t)
+    % plot poistion of the ball in respect to time
     
     figure
     
     plot(time,r);
     hold on;
     
-    if r(end) < 0.5
+    % define treshold for graphing the x-axis
+    treshold = 0.3;
+    
+    if r(end) < treshold
         line(xlim, [0 0], 'Color', 'black');
     end
     
@@ -23,7 +26,7 @@ function plotResults(h, maxIt, r, v, totEn, name)
     xlabel('Time')
     ylabel('r(t)')
 
-    % v(t)
+    % plot velocity of ball in respect to time
     
     figure
     
@@ -34,7 +37,7 @@ function plotResults(h, maxIt, r, v, totEn, name)
     xlabel('Time')
     ylabel('v(t)')
 
-    % E(t)
+    % plot total energy of the ball in respect to time
 
     figure 
 
